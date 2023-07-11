@@ -23,6 +23,8 @@ XUI is based on **page** management. The page is the basic unit of XUI, and here
 
 **You must download libraries of XUI and release in upper folder of** ***pages*** 
 
+Download Link see https://github.com/wacmkxiaoyi/Xenon-UI
+
 And each page has many **menus**, and all information will be concentrated in each **menu**.
 
 ```python
