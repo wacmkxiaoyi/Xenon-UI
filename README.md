@@ -117,7 +117,7 @@ class page(page):
 		self.tkobj.open_ro(None,self.fmbindex,self.default_page_smbindex)
 ```
 
-```
+```python
 #Exit.py
 import os
 try:
