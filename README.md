@@ -21,6 +21,8 @@ pip3 install XenonUI
 
 XUI is based on **page** management. The page is the basic unit of XUI, and here we will create a page "pageA" and place it into the folder **pages**.
 
+**You must download libraries of XUI and release in upper folder of** ***pages*** 
+
 And each page has many **menus**, and all information will be concentrated in each **menu**.
 
 ```python
