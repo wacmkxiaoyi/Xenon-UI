@@ -120,14 +120,9 @@ class page(page):
 ```python
 #Exit.py
 import os
-try:
-	from ShockFinder.Addon.GUI.XUIlib.imgtool import add_image
-	from ShockFinder.Addon.GUI.XUIlib.page import *
-	logo=os.path.join("ShockFinder","Addon","GUI","XUIlib","image","E.png")
-except:
-	from XUIlib.imgtool import add_image
-	from XUIlib.page import *
-	logo=os.path.join("XUIlib","image","E.png")
+from XUI.XUIlib.imgtool import add_image
+from XUI.XUIlib.page import *
+logo=os.path.join("XUI","XUIlib","image","E.png")
 from tkinter import messagebox
 class page(page):
 	img={
