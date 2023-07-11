@@ -14,7 +14,7 @@ date 2023-07-11
 Please enter the following code on the command line to install
 
 ```shell
-pip3 install XUI
+pip3 install XenonUI
 ```
 
 # Create a page
@@ -26,9 +26,9 @@ And each page has many **menus**, and all information will be concentrated in ea
 ```python
 #pageA
 import os
-from XUI.XUIlib.imgtool import add_image
-from XUI.XUIlib.page import *
-logo=os.path.join("XUI","XUIlib","image","A.png") #select a logo you like
+from XenonUI.XUIlib.imgtool import add_image
+from XenonUI.XUIlib.page import *
+logo=os.path.join("XenonUI","XUIlib","image","A.png") #select a logo you like
 from tkinter import *
 
 class page(page):
@@ -82,10 +82,10 @@ XUI has two readable pages: **Help** and **Exit**. You can directly copy the fol
 ```python
 #Help.py
 import os
-from XUI.XUIlib.imgtool import add_image
-from XUI.XUIlib.page import *
-logo=os.path.join("XUI","XUIlib","image","H.png")
-main_logo=os.path.join("XUI","XUIlib","image","XUI.png")
+from XenonUI.XUIlib.imgtool import add_image
+from XenonUI.XUIlib.page import *
+logo=os.path.join("XenonUI","XUIlib","image","H.png")
+main_logo=os.path.join("XenonUI","XUIlib","image","XUI.png")
 
 from tkinter import *
 class page(page):
@@ -120,9 +120,9 @@ class page(page):
 ```python
 #Exit.py
 import os
-from XUI.XUIlib.imgtool import add_image
-from XUI.XUIlib.page import *
-logo=os.path.join("XUI","XUIlib","image","E.png")
+from XenonUI.XUIlib.imgtool import add_image
+from XenonUI.XUIlib.page import *
+logo=os.path.join("XenonUI","XUIlib","image","E.png")
 from tkinter import messagebox
 class page(page):
 	img={
@@ -155,8 +155,8 @@ try:
 	from Config import Pages #those folders/packages path modified by yourself
 except:
 	pass
-from XUI import XUI
-from XUI.XUIlib.SystemInfo import SystemInfo
+from XenonUI import XUI
+from XenonUI.XUIlib.SystemInfo import SystemInfo
 config_file="Config.py"  
 pages_import="pages" #aa.bb.cc.pages 
 
