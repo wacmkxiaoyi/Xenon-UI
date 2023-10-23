@@ -1,29 +1,29 @@
-# Xenon-UI (XUI)
+# xenon-UI (XUI)
 
-XUI is a page management GUI framework for python that is based on the platform-independent GUI package tinker.
+XUI is a Python page management GUI framework based on the platform-independent GUI package tinker.
 
-Author Junxiang H.
+Author: H Junxiang
 If you have any questions and suggestions
-Please contact: huangjunxiang@mail.ynu.edu.cn
+Please contact: huangjunshan@mail.ynu.edu.cn
 
-Latest version: 1.1
-date 2023-07-11
+Latest version: 1.2
+Date 10/20/2023
 
 # Install
 
 Please enter the following code on the command line to install
 
-```shell
+```` shell
 pip3 install XenonUI
-```
+````
 
 # Create a page
 
-XUI is based on **page** management. The page is the basic unit of XUI, and here we will create a page "pageA" and place it into the folder **pages**.
+XUI is managed based on **page**. Page is the basic unit of XUI, here we will create a page "pageA" and put it into the **pages** folder.
 
-**You must download libraries of XUI and release in upper folder of** ***pages*** 
+**Version >=1.1.4 does not require XUI library**
 
-Download Link see https://github.com/wacmkxiaoyi/Xenon-UI
+The download link is https://github.com/wacmkxiaoyi/Xenon-UI
 
 And each page has many **menus**, and all information will be concentrated in each **menu**.
 
@@ -44,7 +44,7 @@ class page(page):
 
 		#add a title, can be call repeatedly
 		self.add_title(self.menu1,"Title of Menu 1")
-		#other arguments of add_title:
+		##other arguments of add_title:
 		#bg: color of title, default "blue"
 		#fontsize: size of title, default 18
 		#height: title height, default 50
@@ -73,8 +73,8 @@ class page(page):
 		self.menu1()
 		self.menu2()
 	def show(self): #Default page
-		#This function means that as soon as you open XUI, the contents of this directory will be displayed
-		#you have to define default menu with the attribute of <class page>, such as self.menu1
+		#This function means that as soon as XUI is opened, the contents of this directory will be displayed.
+		#You must use the attributes of <class page> to define the default menu, such as self.menu1
 		self.tkobj.open_smb(None,self.fmbindex)
 		self.tkobj.open_ro(None,self.fmbindex,self.menu1)
 ```
@@ -150,19 +150,19 @@ class page(page):
 
 # Show pages
 
-You can use the code (save as a new python script) below to call XUI and show the pages you create
+You can use the code below (save as a new Python script) to call the XUI and display the page you created
 
 ```python
 #Example.py
 import os
 try:
-	from Config import Pages #those folders/packages path modified by yourself
+	from XUIConfig import Pages #those folders/packages path modified by yourself
 except:
 	pass
 from XenonUI import XUI
 from XenonUI.XUIlib.SystemInfo import SystemInfo
-config_file="Config.py"  
-pages_import="pages" #aa.bb.cc.pages 
+config_file="XUIConfig.py"  
+pages_import="pages" #aa.bb.cc.pages
 
 
 def CollectPages():
@@ -180,8 +180,13 @@ def CollectPages():
 				result+=(os.path.join(filedir,file),)
 		return result
 	strc="#File type: extension <class page> set\n#By Junxiang H., 2023/07/9\n#wacmk.com/cn Tech. Supp.\n\n#This script updates automaticly! Do not Modify!\n#Update time:"+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"\n\nPages={}\n"
-	for i in tuple(set([FileNamePreProcess(i)[0] for i in GetFiles(pages_dir,"py")])-set(pages_except)):
+	vaild_pages=tuple(set([FileNamePreProcess(i)[0] for i in GetFiles(pages_dir,"py")])-set(pages_except))
+	for i in vaild_pages:
 		strc+="import "+pages_import+"."+i+" as "+i+"\n"+"Pages[\""+i+"\"]="+i+"\n"
+	if "Help" not in vaild_pages:
+		strc+="import XenonUI.XUIlib.pages.Help as Help\nPages[\"Help\"]=Help\n"
+	if "Exit" not in vaild_pages:
+		strc+="import XenonUI.XUIlib.pages.Exit as Exit\nPages[\"Exit\"]=Exit\n"
 	file=open(config_file,"w")
 	file.writelines(strc)
 	file.close()
