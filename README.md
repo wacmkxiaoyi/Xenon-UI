@@ -6,16 +6,33 @@ Author: H Junxiang
 If you have any questions and suggestions
 Please contact: huangjunshan@mail.ynu.edu.cn
 
-Latest version: 1.2
-Date 10/20/2023
+Latest version: 1.2.6
+Date 13/11/2023
+
+# Preinstall
+Before installing XUI, **tkinter** libraries have to be installed
+
+For windows/MacOS:
+```shell
+pip3 install tk
+```
+
+For CentOS/Fedora:
+```shell
+sudo yum install python3-tkinter
+```
+
+For Debian/Ubuntu:
+```shell
+sudo apt install python3-tk
+```
 
 # Install
+Please enter the following code on the command line to install XUI
 
-Please enter the following code on the command line to install
-
-```` shell
+``` shell
 pip3 install XenonUI
-````
+```
 
 # Create a page
 
